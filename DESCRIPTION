@@ -1,0 +1,33 @@
+Package: GenomicPalindromesR
+Title: Dot-Bracket Guided Palindrome Discovery in Mouse Genomes
+Version: 0.1.0
+Authors@R: 
+    person(given = "Sana Wajid",
+           family = "Author",
+           role = c("aut", "cre"),
+           email = "sanawgs@gmail.com")
+Description: Scans DNA sequences and BSgenome mouse assemblies for inverted-repeat
+    palindromes by translating candidate windows into RNA-style dot-bracket
+    structural strings and then using tidyverse-friendly pattern matching to
+    rank, filter, and summarize structural hits.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends: 
+    R (>= 4.2.0)
+Imports:
+    BSgenome,
+    dplyr,
+    GenomeInfoDb,
+    purrr,
+    rlang,
+    stringr,
+    tibble
+Suggests:
+    BSgenome.Mmusculus.UCSC.mm39,
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr

@@ -1,0 +1,81 @@
+---
+title: "GenomicPalindromesR: mouse genome palindrome discovery with dot-bracket strings"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{GenomicPalindromesR}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r}
+library(GenomicPalindromesR)
+library(dplyr)
+```
+
+## Concept
+
+`GenomicPalindromesR` treats a DNA inverted repeat like an RNA hairpin. For a
+candidate window with two complementary arms separated by a spacer, matched
+positions are encoded as parentheses and unpaired positions as dots. That gives
+a compact structural string such as:
+
+```r
+"((((....))))"
+```
+
+You can then search structure directly with tidyverse pipelines.
+
+## Single-sequence scan
+
+```{r}
+hits <- find_palindromes_seq(
+  sequence = "ATGCAAGCAT",
+  min_arm = 4,
+  max_arm = 4,
+  min_loop = 2,
+  max_loop = 2,
+  max_mismatches = 0
+)
+
+hits
+```
+
+## Structure-first filtering
+
+```{r}
+hits %>%
+  search_structure("^\\({4,}\\.{2}\\){4,}$")
+```
+
+## Mouse genome example
+
+```{r eval = FALSE}
+library(BSgenome.Mmusculus.UCSC.mm39)
+
+mm39_hits <- find_palindromes_genome(
+  genome = BSgenome.Mmusculus.UCSC.mm39,
+  chromosomes = c("chr1", "chr7", "chrX"),
+  min_arm = 6,
+  max_arm = 12,
+  min_loop = 0,
+  max_loop = 20,
+  max_mismatches = 1
+)
+
+mm39_hits %>%
+  search_structure("^\\({6,}\\.{0,20}\\){6,}$") %>%
+  summarise_palindromes()
+```
+
+## Interpretation
+
+- more `(` and `)` means stronger inverted-repeat support
+- more `.` in the arms means more broken complementarity
+- larger loops can capture more hairpin-like spacer regions
