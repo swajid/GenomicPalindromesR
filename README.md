@@ -120,7 +120,7 @@ Open to continue to develop this R Package / Publication in the near future. Ple
 
 Teşekkürler <-> Thank You
 
-![img]rewrite-it-in-rust-meme.png
+![img](rewrite-it-in-rust-meme.png)
 
 # Press Inquiries
 Sure, please email me @ s a n a w g s @ g m a i l . c o m
