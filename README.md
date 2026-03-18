@@ -120,6 +120,8 @@ Open to continue to develop this R Package / Publication in the near future. Ple
 
 Teşekkürler <-> Thank You
 
+Although, on second thought, I've moved SO BEYOND THIS that it really doesn't matter, umm yeah ... still onward to more interesting things.
+
 ![img](rewrite-it-in-rust-meme.png)
 
 # Press Inquiries
