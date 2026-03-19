@@ -122,7 +122,7 @@ Teşekkürler <-> Thank You
 
 Although, on second thought, I've moved SO BEYOND THIS that it really doesn't matter, umm yeah ... still onward to more interesting things.
 
-We don't care about this, it's done with. ARCHIVED.
+We don't care about this, it's done with. ARCHIVED. RsYi2VH2y6U
 
 ![img](rewrite-it-in-rust-meme.png)
 
